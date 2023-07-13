@@ -48,8 +48,8 @@ function App() {
     }));
     const [solutionWord, setSolutionWord] = useState<string>("");
     const [gameNb, setGameNb] = useState(1);
-	const [keyboardLetters, setKeyboardLetters] = useState(initialKeyboard);
-	const [attempts, setAttempts] = useState<string[]>(["", "", "", "", ""]);
+    const [keyboardLetters, setKeyboardLetters] = useState(initialKeyboard);
+    const [attempts, setAttempts] = useState<string[]>(["", "", "", "", ""]);
     const [attemptNb, setAttemptNb] = useState(0);
 
     useEffect(() => {
@@ -65,22 +65,26 @@ function App() {
     }, [gameNb]);
     return (
         <>
-		<div className="wordle-card">
-			<Header gameNb={gameNb} />
-			<div>{solutionWord}</div>
-			<AttemptsBoard attempts={attempts} attemptNb={attemptNb} solutionWord={solutionWord} />
-            <Keyboard
+            <div className="wordle-card">
+                <Header gameNb={gameNb} />
+                <div>{solutionWord}</div>
+                <AttemptsBoard
+                    attempts={attempts}
+                    attemptNb={attemptNb}
+                    solutionWord={solutionWord}
+                />
+                <Keyboard
                     keyboardLetters={keyboardLetters}
                     setKeyboardLetters={setKeyboardLetters}
                     attempts={attempts}
                     setAttempts={setAttempts}
                     solutionWord={solutionWord}
                     setGameNb={setGameNb}
-					attemptNb={attemptNb}
-					setAttemptNb={setAttemptNb}
-					initialKeyboard={initialKeyboard}
+                    attemptNb={attemptNb}
+                    setAttemptNb={setAttemptNb}
+                    initialKeyboard={initialKeyboard}
                 />
-			</div>
+            </div>
         </>
     );
 }
