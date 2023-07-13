@@ -14,12 +14,12 @@ export function AttemptLine({
     attemptNb,
     solutionWord,
 }: AttemptLineProps): JSX.Element {
-    const attemptLineSquares = [];
-    const lettersRemovedExactMatches: string[] = getLettersRemovedExactMatches(
+    const possibleYellowLetters: string[] = getLettersRemovedExactMatches(
         solutionWord,
         oneAttempt
     );
 
+    const attemptLineSquares = [];
     for (let nbSquares = 0; nbSquares < 5; nbSquares++) {
         const oneLetter = oneAttempt[nbSquares];
         const square = (
@@ -28,9 +28,12 @@ export function AttemptLine({
                     "attempt-letter-sqr " +
                     addBorderToSquare(oneLetter) +
                     addColorToSquare(
-                        lettersRemovedExactMatches,
                         oneLetter,
-                        nbSquares, attemptNb, solutionWord, oneAttemptIndex
+                        nbSquares,
+                        attemptNb,
+                        solutionWord,
+                        oneAttemptIndex,
+                        possibleYellowLetters
                     )
                 }
             >

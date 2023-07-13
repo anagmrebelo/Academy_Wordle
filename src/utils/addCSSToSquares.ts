@@ -1,36 +1,37 @@
 import { isUndefined } from "./isUndefined";
+import { getLetterScore } from "./getLetterScore";
 
 export const addBorderToSquare = (letter: string) =>
     isUndefined(letter) ? " attempt-letter-sqr-filled " : undefined;
 
 export const addColorToSquare = (
-    lettersRemovedExactMatches: string[],
     letter: string,
     letterIndex: number,
-	attemptNb: number,
-	solutionWord: string,
-	oneAttemptIndex: number
-) => {
+    attemptNb: number,
+    solutionWord: string,
+    oneAttemptIndex: number,
+    possibleYellowLetters: string[]
+): string => {
     if (attemptNb > oneAttemptIndex) {
-        if (solutionWord[letterIndex] === letter) {
-            lettersRemovedExactMatches.splice(
-                lettersRemovedExactMatches.findIndex(
-                    (oneLetter) => oneLetter === letter
-                ),
-                1
-            );
-            return "green-btn font-white";
-        } else if (lettersRemovedExactMatches.includes(letter)) {
-            lettersRemovedExactMatches.splice(
-                lettersRemovedExactMatches.findIndex(
-                    (oneLetter) => oneLetter === letter
-                ),
-                1
-            );
-            return "yellow-btn font-white";
-        } else {
-            return "lightgray-btn font-white";
+        const oneLetterScore = getLetterScore(
+            solutionWord,
+            letter,
+            letterIndex,
+            possibleYellowLetters
+        );
+        let cssClassName = "font-white border-none ";
+        switch (oneLetterScore) {
+            case 2:
+                cssClassName += "green-btn";
+                break;
+            case 1:
+                cssClassName += "yellow-btn";
+                break;
+            case 0:
+                cssClassName += "lightgray-btn";
+                break;
         }
+        return cssClassName;
     }
-    return undefined;
+    return "";
 };
