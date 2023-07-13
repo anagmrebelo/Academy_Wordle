@@ -68,22 +68,26 @@ function App() {
             <div className="wordle-card">
                 <Header gameNb={gameNb} />
                 <div>{solutionWord}</div>
-                <AttemptsBoard
-                    attempts={attempts}
-                    attemptNb={attemptNb}
-                    solutionWord={solutionWord}
-                />
-                <Keyboard
-                    keyboardLetters={keyboardLetters}
-                    setKeyboardLetters={setKeyboardLetters}
-                    attempts={attempts}
-                    setAttempts={setAttempts}
-                    solutionWord={solutionWord}
-                    setGameNb={setGameNb}
-                    attemptNb={attemptNb}
-                    setAttemptNb={setAttemptNb}
-                    initialKeyboard={initialKeyboard}
-                />
+                <div className={"attempts-board"}>
+                    <AttemptsBoard
+                        attempts={attempts}
+                        attemptNb={attemptNb}
+                        solutionWord={solutionWord}
+                    />
+                </div>
+                <div className="keyboard">
+                    <Keyboard
+                        keyboardLetters={keyboardLetters}
+                        setKeyboardLetters={setKeyboardLetters}
+                        attempts={attempts}
+                        setAttempts={setAttempts}
+                        solutionWord={solutionWord}
+                        setGameNb={setGameNb}
+                        attemptNb={attemptNb}
+                        setAttemptNb={setAttemptNb}
+                        initialKeyboard={initialKeyboard}
+                    />
+                </div>
             </div>
         </>
     );

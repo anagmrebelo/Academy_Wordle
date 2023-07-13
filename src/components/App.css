@@ -35,6 +35,14 @@ p {
     padding: 0px;
 }
 
+/* .attempts-board {
+
+} */
+
+.keyboard {
+    margin-top: 10px;
+}
+
 .keyboard-letter-sqr {
     font-size: 1rem;
     width: 30px;
