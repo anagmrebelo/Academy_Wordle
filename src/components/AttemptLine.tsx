@@ -1,3 +1,6 @@
+import { getLettersRemovedExactMatches } from "../utils/getLettersRemovedExactMatches";
+import { addBorderToSquare, addColorToSquare } from "../utils/addCSSToSquares";
+
 interface AttemptLineProps {
     oneAttempt: string;
     oneAttemptIndex: number;
@@ -11,40 +14,11 @@ export function AttemptLine({
     attemptNb,
     solutionWord,
 }: AttemptLineProps): JSX.Element {
-    const isFilled = (letter: string) => (letter === undefined ? false : true);
-    const addBorderToSquare = (letter: string) =>
-        isFilled(letter) ? " attempt-letter-sqr-filled " : undefined;
-    const addColorToSquare = (
-        remainingLetters: string[],
-        letter: string,
-        letterIndex: number
-    ) => {
-        if (attemptNb > oneAttemptIndex) {
-            if (solutionWord[letterIndex] === letter) {
-                remainingLetters.splice(
-                    remainingLetters.findIndex(
-                        (oneLetter) => oneLetter === letter
-                    ),
-                    1
-                );
-                return "green-btn font-white";
-            } else if (remainingLetters.includes(letter)) {
-                remainingLetters.splice(
-                    remainingLetters.findIndex(
-                        (oneLetter) => oneLetter === letter
-                    ),
-                    1
-                );
-                return "yellow-btn font-white";
-            } else {
-                return "lightgray-btn font-white";
-            }
-        }
-        return undefined;
-    };
-
     const attemptLineSquares = [];
-    let remainingLetters: string[] = solutionWord.split("");
+    const lettersRemovedExactMatches: string[] = getLettersRemovedExactMatches(
+        solutionWord,
+        oneAttempt
+    );
 
     for (let nbSquares = 0; nbSquares < 5; nbSquares++) {
         const oneLetter = oneAttempt[nbSquares];
@@ -53,7 +27,11 @@ export function AttemptLine({
                 className={
                     "attempt-letter-sqr " +
                     addBorderToSquare(oneLetter) +
-                    addColorToSquare(remainingLetters, oneLetter, nbSquares)
+                    addColorToSquare(
+                        lettersRemovedExactMatches,
+                        oneLetter,
+                        nbSquares, attemptNb, solutionWord, oneAttemptIndex
+                    )
                 }
             >
                 {oneLetter}
