@@ -1,5 +1,6 @@
 import { KeyBoardLetter } from "./App";
 import { getColorUpdateKeyboardLetters } from "../utils/getColorUpdateKeyboardLetters";
+import { alertAutoDisappear } from "../utils/alertWin";
 
 const maxAttemptsAllowed = 5;
 
@@ -56,13 +57,17 @@ export function Keyboard({
             changeColorsKeyboard();
             setAttemptNb((previous) => previous + 1);
             if (attempts[attemptNb] === solutionWord) {
-                alert("You won!");
+                alertAutoDisappear("You won!", 1000);
                 resetGame();
             } else if (attemptNb + 1 === maxAttemptsAllowed) {
-                alert("You Lost! The word was " + { solutionWord });
+                alertAutoDisappear(
+                    "You lost!",
+                    2000,
+                    "The word was " + solutionWord
+                );
                 resetGame();
             } else {
-                alert("Keep trying");
+                alertAutoDisappear("Keep trying", 1000);
             }
         }
     };
