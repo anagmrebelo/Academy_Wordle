@@ -55,14 +55,17 @@ function App() {
     useEffect(() => {
         async function fetchWord() {
             const response = await fetch(
-                "https://random-word-api.herokuapp.com/word?length=5"
+                "https://random-word-api.herokuapp.com/all"
             );
             const bodyData: WordFetched = await response.json();
-            const upperCasedSolutionWord = bodyData[0].toUpperCase();
-            setSolutionWord(upperCasedSolutionWord);
+            let allWords = bodyData.map((oneWord) => oneWord.toUpperCase());
+            allWords = allWords.filter((oneWord) => oneWord.length === 5);
+            setSolutionWord(
+                allWords[Math.floor(Math.random() * allWords.length)]
+            );
         }
         fetchWord();
-    }, [gameNb]);
+    }, []);
     return (
         <>
             <div className="wordle-card">
