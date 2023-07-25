@@ -26,10 +26,10 @@ export function Keyboard({
     setAttemptNb,
     initialKeyboard,
 }: KeyboardProps): JSX.Element {
-    const handleOnClickLetter = (event: any): void => {
+    const handleOnClickLetter = (clickedLetter: KeyBoardLetter): void => {
         if (attempts[attemptNb].length < 5) {
             const addedLetterAttempts = [...attempts];
-            addedLetterAttempts[attemptNb] += event.target.id;
+            addedLetterAttempts[attemptNb] += clickedLetter.value;
             setAttempts(addedLetterAttempts);
         }
     };
@@ -80,7 +80,7 @@ export function Keyboard({
 
     const keyboardButtons = keyboardLetters.map((oneKeyboardLetter) => (
         <button
-            onClick={handleOnClickLetter}
+            onClick={() => handleOnClickLetter(oneKeyboardLetter)}
             className={
                 "keyboard-letter-sqr " + oneKeyboardLetter.color + "-btn"
             }
