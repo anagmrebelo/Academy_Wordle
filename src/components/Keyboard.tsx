@@ -93,9 +93,11 @@ export function Keyboard({
 
     return (
         <>
-            {keyboardButtons}
-            <button onClick={handleOnClickEnter}>Enter</button>
-            <button onClick={handleOnClickDelete}>Delete</button>
+            <div>{keyboardButtons}</div>
+            <div className="special-btns">
+                <button onClick={handleOnClickEnter}>Enter</button>
+                <button onClick={handleOnClickDelete}>Delete</button>
+            </div>
         </>
     );
 }

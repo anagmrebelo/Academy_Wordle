@@ -110,3 +110,7 @@ p {
 .border-none {
     border: none;
 }
+
+.special-btns {
+    margin: 8px;
+}
