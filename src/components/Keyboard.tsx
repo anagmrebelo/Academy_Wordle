@@ -91,6 +91,8 @@ export function Keyboard({
         }
     };
 
+    const handleOnClickGiveUp = (): void => {};
+
     const keyboardButtons = keyboardLetters.map((oneKeyboardLetter) => (
         <button
             onClick={() => handleOnClickLetter(oneKeyboardLetter)}
@@ -110,6 +112,7 @@ export function Keyboard({
             <div className="special-btns">
                 <button onClick={handleOnClickEnter}>Enter</button>
                 <button onClick={handleOnClickDelete}>Delete</button>
+                <button onClick={handleOnClickGiveUp}>Give up</button>
             </div>
         </>
     );
