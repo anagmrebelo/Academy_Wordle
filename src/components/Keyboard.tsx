@@ -14,6 +14,7 @@ interface KeyboardProps {
     attemptNb: number;
     setAttemptNb: React.Dispatch<React.SetStateAction<number>>;
     initialKeyboard: KeyBoardLetter[];
+    allPossibleWords: string[];
 }
 
 export function Keyboard({
@@ -26,6 +27,7 @@ export function Keyboard({
     attemptNb,
     setAttemptNb,
     initialKeyboard,
+    allPossibleWords,
 }: KeyboardProps): JSX.Element {
     const handleOnClickLetter = (clickedLetter: KeyBoardLetter): void => {
         if (attempts[attemptNb].length < 5) {
@@ -53,22 +55,28 @@ export function Keyboard({
     };
 
     const handleOnClickEnter = (): void => {
-        if (attempts[attemptNb].length === 5) {
-            changeColorsKeyboard();
-            setAttemptNb((previous) => previous + 1);
-            if (attempts[attemptNb] === solutionWord) {
-                alertAutoDisappear("You won!", 1000);
-                resetGame();
-            } else if (attemptNb + 1 === maxAttemptsAllowed) {
-                alertAutoDisappear(
-                    "You lost!",
-                    2000,
-                    "The word was " + solutionWord
-                );
-                resetGame();
-            } else {
-                alertAutoDisappear("Keep trying", 1000);
-            }
+        if (attempts[attemptNb].length !== 5) {
+            alertAutoDisappear("Word has to be 5 letters", 1000);
+            return;
+        }
+        if (!allPossibleWords.includes(attempts[attemptNb])) {
+            alertAutoDisappear("Not a valid english word", 1000);
+            return;
+        }
+        changeColorsKeyboard();
+        setAttemptNb((previous) => previous + 1);
+        if (attempts[attemptNb] === solutionWord) {
+            alertAutoDisappear("You won!", 1000);
+            resetGame();
+        } else if (attemptNb + 1 === maxAttemptsAllowed) {
+            alertAutoDisappear(
+                "You lost!",
+                2000,
+                "The word was " + solutionWord
+            );
+            resetGame();
+        } else {
+            alertAutoDisappear("Keep trying", 1000);
         }
     };
 

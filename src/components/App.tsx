@@ -51,6 +51,7 @@ function App() {
     const [keyboardLetters, setKeyboardLetters] = useState(initialKeyboard);
     const [attempts, setAttempts] = useState<string[]>(["", "", "", "", ""]);
     const [attemptNb, setAttemptNb] = useState(0);
+    const [allPossibleWords, setAllPossibleWords] = useState<string[]>([]);
 
     useEffect(() => {
         async function fetchWord() {
@@ -60,12 +61,20 @@ function App() {
             const bodyData: WordFetched = await response.json();
             let allWords = bodyData.map((oneWord) => oneWord.toUpperCase());
             allWords = allWords.filter((oneWord) => oneWord.length === 5);
-            setSolutionWord(
-                allWords[Math.floor(Math.random() * allWords.length)]
-            );
+            setAllPossibleWords(allWords);
         }
         fetchWord();
     }, []);
+
+    useEffect(() => {
+        if (allPossibleWords.length > 0) {
+            setSolutionWord(
+                allPossibleWords[
+                    Math.floor(Math.random() * allPossibleWords.length)
+                ]
+            );
+        }
+    }, [gameNb, allPossibleWords]);
     return (
         <>
             <div className="wordle-card">
@@ -89,6 +98,7 @@ function App() {
                         attemptNb={attemptNb}
                         setAttemptNb={setAttemptNb}
                         initialKeyboard={initialKeyboard}
+                        allPossibleWords={allPossibleWords}
                     />
                 </div>
             </div>
