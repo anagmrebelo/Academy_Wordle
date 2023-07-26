@@ -91,7 +91,9 @@ export function Keyboard({
         }
     };
 
-    const handleOnClickGiveUp = (): void => {};
+    const handleOnClickGiveUp = (): void => {
+        resetGame();
+    };
 
     const keyboardButtons = keyboardLetters.map((oneKeyboardLetter) => (
         <button
