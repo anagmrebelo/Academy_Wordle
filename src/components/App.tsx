@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AttemptsBoard } from "./AttempsBoard";
 import { Keyboard } from "./Keyboard";
 import { Header } from "./Header";
+import KeyboardSimple from "./KeyboardSimple";
 
 export interface KeyBoardLetter {
     id: number;
@@ -88,7 +89,7 @@ function App() {
                     />
                 </div>
                 <div className="keyboard">
-                    <Keyboard
+                    {/* <Keyboard
                         keyboardLetters={keyboardLetters}
                         setKeyboardLetters={setKeyboardLetters}
                         attempts={attempts}
@@ -99,6 +100,11 @@ function App() {
                         setAttemptNb={setAttemptNb}
                         initialKeyboard={initialKeyboard}
                         allPossibleWords={allPossibleWords}
+                    /> */}
+                    <KeyboardSimple
+                        attempts={attempts}
+                        attemptNb={attemptNb}
+                        setAttempts={setAttempts}
                     />
                 </div>
             </div>
