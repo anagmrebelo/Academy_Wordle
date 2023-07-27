@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AttemptsBoard } from "./AttempsBoard";
 import { Header } from "./Header";
 import KeyboardSimple from "./KeyboardSimple";
+import { getRandomItem } from "../utils/getRandomItem";
 
 export interface KeyBoardLetter {
     id: number;
@@ -26,26 +27,22 @@ function App() {
 
     useEffect(() => {
         async function fetchWord() {
-            const response = await fetch(
-                "https://random-word-api.herokuapp.com/all"
-            );
-            const bodyData: WordFetched = await response.json();
-            let allWords = bodyData.map((oneWord) => oneWord.toUpperCase());
-            allWords = allWords.filter((oneWord) => oneWord.length === 5);
-            setAllPossibleWords(allWords);
+            fetch("https://random-word-api.herokuapp.com/all")
+                .then((response) => response.json())
+                .then((bodyData: WordFetched) =>
+                    bodyData.map((oneWord: string) => oneWord.toUpperCase())
+                )
+                .then((allWords) =>
+                    allWords.filter((oneWord: string) => oneWord.length === 5)
+                )
+                .then((allWords) => {
+                    setAllPossibleWords(allWords);
+                    setSolutionWord(getRandomItem(allWords));
+                });
         }
         fetchWord();
     }, []);
 
-    useEffect(() => {
-        if (allPossibleWords.length > 0) {
-            setSolutionWord(
-                allPossibleWords[
-                    Math.floor(Math.random() * allPossibleWords.length)
-                ]
-            );
-        }
-    }, [gameNb, allPossibleWords]);
     return (
         <>
             <div className="wordle-card">
@@ -55,6 +52,8 @@ function App() {
                     setGameNb={setGameNb}
                     setAttemptNb={setAttemptNb}
                     setKeyboardColors={setKeyboardColors}
+                    allPossibleWords={allPossibleWords}
+                    setSolutionWord={setSolutionWord}
                 />
                 <div>{solutionWord}</div>
                 <div className={"attempts-board"}>

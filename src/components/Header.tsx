@@ -1,3 +1,5 @@
+import { getRandomItem } from "../utils/getRandomItem";
+
 interface HeaderProps {
     gameNb: number;
     setAttempts: React.Dispatch<React.SetStateAction<string[]>>;
@@ -10,6 +12,8 @@ interface HeaderProps {
             green: string;
         }>
     >;
+    setSolutionWord: React.Dispatch<React.SetStateAction<string>>;
+    allPossibleWords: string[];
 }
 
 export function Header({
@@ -18,12 +22,15 @@ export function Header({
     setGameNb,
     setAttemptNb,
     setKeyboardColors,
+    setSolutionWord,
+    allPossibleWords,
 }: HeaderProps): JSX.Element {
     const resetGame = () => {
         setAttempts(["", "", "", "", ""]);
         setGameNb((previous) => previous + 1);
         setAttemptNb(0);
         setKeyboardColors({ gray: "", yellow: "", green: "" });
+        setSolutionWord(getRandomItem(allPossibleWords));
     };
 
     return (
