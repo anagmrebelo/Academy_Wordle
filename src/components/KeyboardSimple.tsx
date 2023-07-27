@@ -1,7 +1,7 @@
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { alertAutoDisappear } from "../utils/alertWin";
-import { getColorUpdateKeyboard } from "../utils/getColorUpdateKeyboard";
+import { changeColorsKeyboard } from "../utils/changeColorsKeyboard";
 
 const maxAttemptsAllowed = 5;
 
@@ -45,11 +45,16 @@ export default function KeyboardSimple({
             alertAutoDisappear("Word has to be 5 letters", 1000);
             return;
         }
-        if (!allPossibleWords.includes(attempts[attemptNb])) {
-            alertAutoDisappear("Not a valid english word", 1000);
-            return;
-        }
-        changeColorsKeyboard();
+        // if (!allPossibleWords.includes(attempts[attemptNb])) {
+        //     alertAutoDisappear("Not a valid english word", 1000);
+        //     return;
+        // }
+        changeColorsKeyboard(
+            attempts[attemptNb],
+            solutionWord,
+            keyboardColors,
+            setKeyboardColors
+        );
         setAttemptNb((previous) => previous + 1);
         if (attempts[attemptNb] === solutionWord) {
             alertAutoDisappear("You won!", 1000);
@@ -62,15 +67,6 @@ export default function KeyboardSimple({
         } else {
             alertAutoDisappear("Keep trying", 1000);
         }
-    };
-
-    const changeColorsKeyboard = () => {
-        getColorUpdateKeyboard(
-            attempts[attemptNb],
-            solutionWord,
-            keyboardColors,
-            setKeyboardColors
-        );
     };
 
     const bkspPress = () => {
@@ -120,7 +116,7 @@ export default function KeyboardSimple({
                 default: [
                     "Q W E R T Y U I O P",
                     "A S D F G H J K L",
-                    "{enter} Z X C V B N M {bksp}",
+                    "{bksp} Z X C V B N M {enter}",
                 ],
             }}
             buttonTheme={buttonTheme}
