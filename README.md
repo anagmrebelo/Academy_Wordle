@@ -40,3 +40,8 @@ Wordle is a word puzzle game that challenges players to guess a five-letter word
 **Process:** Use the feedback from previous guesses to eliminate possibilities and make educated guesses in subsequent attempts.
 
 **Winning:** If you guess the word correctly within five attempts, you win the game!
+
+
+## Possible improvements
+Remove the guessing word from list of possible 5-letter-words for following games within same session
+Fetch or store all-5-words in a more efficent way
