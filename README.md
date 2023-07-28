@@ -1,4 +1,4 @@
-# React app (Vite)
+# Wordle Game - React App
 
 ## Installation
 
@@ -18,75 +18,25 @@ It will also ask your browser to open a tab to `http://localhost:3000/`
 
 Any type-check and linting errors will appear in the browser and in the terminal output as you browse.
 
-## Relaxing complains from ESLint
+## Link to play online 
+https://wordle-anagmrebelo.netlify.app/
 
-If you find lint is too strict, you can edit the rules section of [.eslintrc.cjs](.eslintrc.cjs).
+## Overview
+Wordle is a word puzzle game that challenges players to guess a five-letter word within six attempts. Each guess is checked against the target word, and feedback is provided to help the player narrow down their choices. It's a fun and engaging way to test your vocabulary and word-solving skills.
 
-## Building and previewing a static version of your app:
+## How to Play
+**Objective: **The goal of the game is to guess the secret five-letter word.
 
-This process is normally performed automatically by a build&host service such as Netlify or Vercel.
+**Guessing Rules:** You have five attempts to guess the word. Each guess must be a valid five-letter English word with no repeated letters.
 
-However, you can [run it yourself](https://vitejs.dev/guide/static-deploy.html#building-the-app) to observe the outputs.
+**Feedback:** After each guess, you'll receive feedback on the correctness of your guess:
 
-```
-yarn build
-```
+**Correct Letter and Position:** If a letter is in the target word and appears in the correct position, it will be marked as green.
 
-This will bundle your many source files into very few in `dist/`, ready for deployment on a web server. As part of the process, it will convert your TypeScript files into JavaScript, using the TypeScript compiler, `tsc`.
+**Correct Letter, Wrong Position: **If a letter is in the target word but appears in the wrong position, it will be marked as yellow.
 
-If you've run a local build, you can start a local server to host those files, using:
+**Incorrect Letter:** If a letter is not in the target word, it will be marked as gray.
 
-```
-yarn preview
-```
+**Process:** Use the feedback from previous guesses to eliminate possibilities and make educated guesses in subsequent attempts.
 
-## Automatic Deployment with Netlify
-
-See [Netlify with Git](https://vitejs.dev/guide/static-deploy.html#building-the-app)
-or more generally, ["Deploying a Static Site" in the Vite Guide](https://vitejs.dev/guide/static-deploy.html).
-
-## Other scripts
-
-See [package.json](package.json) for other scripts.
-
-## Feature summary
-
--   React app (hot-reloaded when you make changes)
--   TypeScript
--   ESLint and custom config
--   Formatting with prettier
--   Testing with
-    -   vitest (jest-equivalent) and
-    -   react-testing-library
--   CI with GitHub Actions
--   vscode debugger launch config
--   Vite
-    -   Type-checking and linting errors presented into the browser (vite-plugin-checker)
--   As little other junk as possible
-
-## Attaching the vscode javascript debugger to your react app (in dev)
-
-(This is meant as an optional alternative to the excellent chrome devtools.)
-
--   Start the dev server (e.g. yarn start)
--   In vscode, switch to the "Run and debug" tab from the side menu
--   At the top, click the green play button entitled "Launch Chrome against localhost"
-    -   Browser should also launch, eventually
--   Add breakpoint(s) to your react code in vscode, or add the `debugger` keyword
--   Interact with the React app so that your breakpoints / `debugger` keyword are encountered.
--   vscode's debugger should now present you with the local variables, the call stack, etc.
--   Use the transport controls at the top to step through your code or continue execution
-
-## Alternative to vite-plugin-checker
-
-If you don't want to use vite-plugin-checker but you do want to get type-checking errors in the terminal, you can run dev and type-check at the same time by adding this script to package.json:
-
-```
-"dev-and-type-check": "npx concurrently 'vite --port 3000' 'tsc --noEmit --watch'"
-```
-
-## Misc notes on Vite
-
--   [Vite guide](https://vitejs.dev/guide/)
--   [About the `public` directory](https://vitejs.dev/guide/assets.html#the-public-directory)
--   [Vite powerful React project setup](https://dev.to/equiman/vite-powerful-react-project-g4m) (Camilo Martinez)
+**Winning:** If you guess the word correctly within five attempts, you win the game!
