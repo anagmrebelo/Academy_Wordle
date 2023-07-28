@@ -55,7 +55,6 @@ function App() {
                     allPossibleWords={allPossibleWords}
                     setSolutionWord={setSolutionWord}
                 />
-                <div>{solutionWord}</div>
                 <div className={"attempts-board"}>
                     <AttemptsBoard
                         attempts={attempts}
