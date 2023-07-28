@@ -2,8 +2,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { alertAutoDisappear } from "../utils/alertWin";
 import { changeColorsKeyboard } from "../utils/changeColorsKeyboard";
-
-const maxAttemptsAllowed = 5;
+import { maxAttemptsAllowed } from "./App";
 
 interface KeyboardProps {
     attempts: string[];

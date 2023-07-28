@@ -4,6 +4,7 @@ import { AttemptsBoard } from "./AttempsBoard";
 import { Header } from "./Header";
 import KeyboardSimple from "./KeyboardSimple";
 import { getRandomItem } from "../utils/getRandomItem";
+import { collect } from "../utils/collect";
 
 export interface KeyBoardLetter {
     id: number;
@@ -13,10 +14,14 @@ export interface KeyBoardLetter {
 
 type WordFetched = string[];
 
+export const maxAttemptsAllowed = 6;
+
 function App() {
     const [solutionWord, setSolutionWord] = useState<string>("");
     const [gameNb, setGameNb] = useState(1);
-    const [attempts, setAttempts] = useState<string[]>(["", "", "", "", ""]);
+    const [attempts, setAttempts] = useState<string[]>(
+        collect("", maxAttemptsAllowed)
+    );
     const [attemptNb, setAttemptNb] = useState(0);
     const [allPossibleWords, setAllPossibleWords] = useState<string[]>([]);
     const [keyboardColors, setKeyboardColors] = useState({
