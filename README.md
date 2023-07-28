@@ -47,9 +47,15 @@ Disable keyboard typing after winning
 
 Remove keep trying alert
 
+Bug on keyboard coloring
 
 
 ## Possible improvements
 Remove the guessing word from list of possible 5-letter-words for following games within same session
 
 Fetch or store all-5-words in a more efficent way
+
+Add a light/dark mode option
+
+Give option to change keyboard layout
+
