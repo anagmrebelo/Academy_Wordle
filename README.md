@@ -40,6 +40,12 @@ Any type-check and linting errors will appear in the browser and in the terminal
 ## Link to play online 
 https://wordle-anagmrebelo.netlify.app/
 
+## In progress improvements
+Improve CSS for mobile (e.g. padding around app)
+Disable keyboard typing after winning
+Remove keep trying alert
+
+
 
 ## Possible improvements
 Remove the guessing word from list of possible 5-letter-words for following games within same session
