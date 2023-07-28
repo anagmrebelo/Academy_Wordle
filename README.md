@@ -40,23 +40,7 @@ Any type-check and linting errors will appear in the browser and in the terminal
 ## Link to play online 
 https://wordle-anagmrebelo.netlify.app/
 
-## In progress improvements
-Improve CSS for mobile (e.g. padding around app)
 
-Disable keyboard typing after winning
+## Possible improvements - refer to Project Board attached to this repo
 
-Remove keep trying alert
-
-Bug on keyboard coloring
-
-
-## Possible improvements
-Remove the guessing word from list of possible 5-letter-words for following games within same session
-
-Fetch or store all-5-words in a more efficent way
-
-Add a light/dark mode option
-
-Give option to change keyboard layout
-
-Use Keyboard to type letters not only the mouse
+https://github.com/users/anagmrebelo/projects/1
