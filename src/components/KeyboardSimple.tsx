@@ -64,8 +64,6 @@ export default function KeyboardSimple({
                 2000,
                 "The word was " + solutionWord
             );
-        } else {
-            alertAutoDisappear("Keep trying", 1000);
         }
     };
 
