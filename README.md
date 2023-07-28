@@ -59,3 +59,4 @@ Add a light/dark mode option
 
 Give option to change keyboard layout
 
+Use Keyboard to type letters not only the mouse
