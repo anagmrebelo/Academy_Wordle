@@ -69,10 +69,10 @@ function App() {
                         setAttempts={setAttempts}
                         attemptNb={attemptNb}
                         setAttemptNb={setAttemptNb}
-                        allPossibleWords={allPossibleWords}
                         solutionWord={solutionWord}
                         keyboardColors={keyboardColors}
                         setKeyboardColors={setKeyboardColors}
+                        allPossibleWords={allPossibleWords}
                     />
                 </div>
             </div>

@@ -45,10 +45,10 @@ export default function KeyboardSimple({
             alertAutoDisappear("Word has to be 5 letters", 1000);
             return;
         }
-        // if (!allPossibleWords.includes(attempts[attemptNb])) {
-        //     alertAutoDisappear("Not a valid english word", 1000);
-        //     return;
-        // }
+        if (!allPossibleWords.includes(attempts[attemptNb])) {
+            alertAutoDisappear("Not a valid english word", 1000);
+            return;
+        }
         changeColorsKeyboard(
             attempts[attemptNb],
             solutionWord,
