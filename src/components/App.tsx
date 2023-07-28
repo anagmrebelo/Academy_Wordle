@@ -14,7 +14,7 @@ export interface KeyBoardLetter {
 
 type WordFetched = string[];
 
-export const maxAttemptsAllowed = 3;
+export const maxAttemptsAllowed = 6;
 
 function App() {
     const [solutionWord, setSolutionWord] = useState<string>("");
