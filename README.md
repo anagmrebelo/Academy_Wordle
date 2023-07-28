@@ -1,7 +1,7 @@
 # Wordle Game - React App
 
 ## Overview
-Wordle is a word puzzle game that challenges players to guess a five-letter word within six attempts. Each guess is checked against the target word, and feedback is provided to help the player narrow down their choices. It's a fun and engaging way to test your vocabulary and word-solving skills.
+Wordle is a word puzzle game that challenges players to guess a five-letter word within five attempts. Each guess is checked against the target word, and feedback is provided to help the player narrow down their choices. It's a fun and engaging way to test your vocabulary and word-solving skills.
 
 ## How to Play
 **Objective:** The goal of the game is to guess the secret five-letter word.
