@@ -44,4 +44,5 @@ Wordle is a word puzzle game that challenges players to guess a five-letter word
 
 ## Possible improvements
 Remove the guessing word from list of possible 5-letter-words for following games within same session
+
 Fetch or store all-5-words in a more efficent way
