@@ -1,6 +1,6 @@
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import { alertAutoDisappear } from "../utils/alertWin";
+import { alertAutoDisappear, alertFixed } from "../utils/alerts";
 import { changeColorsKeyboard } from "../utils/changeColorsKeyboard";
 import { maxAttemptsAllowed } from "./App";
 
@@ -58,11 +58,7 @@ export default function KeyboardSimple({
         if (attempts[attemptNb] === solutionWord) {
             alertAutoDisappear("You won!", 1000);
         } else if (attemptNb + 1 === maxAttemptsAllowed) {
-            alertAutoDisappear(
-                "You lost!",
-                2000,
-                "The word was " + solutionWord
-            );
+            alertFixed("You lost!", "The word was " + solutionWord);
         }
     };
 

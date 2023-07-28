@@ -8,3 +8,10 @@ export function alertAutoDisappear(title: string, timer: number, html = "") {
         timerProgressBar: true,
     });
 }
+
+export function alertFixed(title: string, html = "") {
+    Swal.fire({
+        title: title,
+        html: html,
+    });
+}
