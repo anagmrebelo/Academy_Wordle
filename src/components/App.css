@@ -11,10 +11,6 @@ body {
     font-family: "Montserrat", "Open Sans", sans-serif;
 }
 
-/* div {
-	border: 1px dashed red;
-} */
-
 h1 {
     margin: 0px;
     padding: 0px;
@@ -34,10 +30,6 @@ p {
     margin: 0px;
     padding: 0px;
 }
-
-/* .attempts-board {
-
-} */
 
 .keyboard {
     margin-top: 10px;
@@ -113,4 +105,35 @@ p {
 
 .special-btns {
     margin: 8px;
+}
+
+.reset-btn {
+    min-height: 36px;
+    border-radius: 8px;
+    background-color: green;
+    font-size: 1rem;
+    color: white;
+    font-family: "Montserrat", "Open Sans", sans-serif;
+}
+
+.grid-flex {
+    display: flex;
+    justify-content: space-around;
+    place-items: center;
+}
+
+/* Keyboard */
+.simple-keyboard.hg-layout-default .hg-button.hg-green {
+    background: green;
+    color: white;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-gray {
+    background: gray;
+    color: white;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.hg-yellow {
+    background: rgb(255, 217, 0);
+    color: white;
 }
