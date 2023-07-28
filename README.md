@@ -42,7 +42,9 @@ https://wordle-anagmrebelo.netlify.app/
 
 ## In progress improvements
 Improve CSS for mobile (e.g. padding around app)
+
 Disable keyboard typing after winning
+
 Remove keep trying alert
 
 
