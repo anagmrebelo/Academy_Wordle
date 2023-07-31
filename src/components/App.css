@@ -75,6 +75,10 @@ p {
     padding: 20px;
 }
 
+.margin-20-left {
+    margin-left: 20px;
+}
+
 .margin-20 {
     margin: 20px;
 }
@@ -136,4 +140,9 @@ p {
 .simple-keyboard.hg-layout-default .hg-button.hg-yellow {
     background: rgb(255, 217, 0);
     color: white;
+}
+
+.game-options {
+    display: flex;
+    justify-content: center;
 }

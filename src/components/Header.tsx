@@ -41,12 +41,13 @@ export function Header({
 
     return (
         <>
-            <div>
-                <h1 className="padding-20">Wordle</h1>
+            <div className="game-options">
                 <KeyboardSelector
                     setKeyboardLayoutType={setKeyboardLayoutType}
                 />
+                {/* <button className="margin-20-left">D</button> */}
             </div>
+            <h1 className="padding-20">Wordle</h1>
             <div className="grid-flex">
                 <h2 className="padding-20">Game #{gameNb}</h2>
                 <button className={"reset-btn"} onClick={resetGame}>
