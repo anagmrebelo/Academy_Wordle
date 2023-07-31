@@ -1,4 +1,6 @@
 import { getRandomItem } from "../utils/getRandomItem";
+import { KeyboardSelector } from "./KeyboardSelector";
+import { KeyboardLayouts } from "./App";
 
 interface HeaderProps {
     gameNb: number;
@@ -14,6 +16,9 @@ interface HeaderProps {
     >;
     setSolutionWord: React.Dispatch<React.SetStateAction<string>>;
     allPossibleWords: string[];
+    setKeyboardLayoutType: React.Dispatch<
+        React.SetStateAction<KeyboardLayouts>
+    >;
 }
 
 export function Header({
@@ -24,6 +29,7 @@ export function Header({
     setKeyboardColors,
     setSolutionWord,
     allPossibleWords,
+    setKeyboardLayoutType,
 }: HeaderProps): JSX.Element {
     const resetGame = () => {
         setAttempts(["", "", "", "", ""]);
@@ -35,6 +41,12 @@ export function Header({
 
     return (
         <>
+            <div className="game-options">
+                <KeyboardSelector
+                    setKeyboardLayoutType={setKeyboardLayoutType}
+                />
+                {/* <button className="margin-20-left">D</button> */}
+            </div>
             <h1 className="padding-20">Wordle</h1>
             <div className="grid-flex">
                 <h2 className="padding-20">Game #{gameNb}</h2>

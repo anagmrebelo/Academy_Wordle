@@ -2,7 +2,7 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import { alertAutoDisappear, alertFixed } from "../utils/alerts";
 import { changeColorsKeyboard } from "../utils/changeColorsKeyboard";
-import { maxAttemptsAllowed } from "./App";
+import { KeyboardLayouts, maxAttemptsAllowed, keyboardLayouts } from "./App";
 
 interface KeyboardProps {
     attempts: string[];
@@ -19,6 +19,7 @@ interface KeyboardProps {
             green: string;
         }>
     >;
+    keyboardLayoutType: KeyboardLayouts;
 }
 
 export default function KeyboardSimple({
@@ -30,6 +31,7 @@ export default function KeyboardSimple({
     solutionWord,
     keyboardColors,
     setKeyboardColors,
+    keyboardLayoutType,
 }: KeyboardProps): JSX.Element {
     const letterPress = (button: string) => {
         if (attempts[attemptNb].length < 5) {
@@ -105,13 +107,7 @@ export default function KeyboardSimple({
     return (
         <Keyboard
             onKeyPress={onKeyPress}
-            layout={{
-                default: [
-                    "Q W E R T Y U I O P",
-                    "A S D F G H J K L",
-                    "{bksp} Z X C V B N M {enter}",
-                ],
-            }}
+            layout={keyboardLayouts[keyboardLayoutType]}
             buttonTheme={buttonTheme}
             theme={"hg-theme-default"}
         />
