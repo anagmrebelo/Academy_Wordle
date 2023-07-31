@@ -16,6 +16,25 @@ type WordFetched = string[];
 
 export const maxAttemptsAllowed = 6;
 
+export const keyboardLayouts = {
+    QWERTY: {
+        default: [
+            "Q W E R T Y U I O P",
+            "A S D F G H J K L",
+            "{bksp} Z X C V B N M {enter}",
+        ],
+    },
+    AZ: {
+        default: [
+            "A B C D E F G H I J",
+            "K L M N O P Q R S",
+            "{bksp} T U V X W Y Z {enter}",
+        ],
+    },
+};
+
+export type KeyboardLayouts = "QWERTY" | "AZ";
+
 function App() {
     const [solutionWord, setSolutionWord] = useState<string>("");
     const [gameNb, setGameNb] = useState(1);
@@ -29,6 +48,8 @@ function App() {
         yellow: "",
         green: "",
     });
+    const [keyboardLayoutType, setKeyboardLayoutType] =
+        useState<KeyboardLayouts>("QWERTY");
 
     useEffect(() => {
         async function fetchWord() {
@@ -59,6 +80,7 @@ function App() {
                     setKeyboardColors={setKeyboardColors}
                     allPossibleWords={allPossibleWords}
                     setSolutionWord={setSolutionWord}
+                    setKeyboardLayoutType={setKeyboardLayoutType}
                 />
                 <div className={"attempts-board"}>
                     <AttemptsBoard
@@ -77,6 +99,7 @@ function App() {
                         keyboardColors={keyboardColors}
                         setKeyboardColors={setKeyboardColors}
                         allPossibleWords={allPossibleWords}
+                        keyboardLayoutType={keyboardLayoutType}
                     />
                 </div>
             </div>
