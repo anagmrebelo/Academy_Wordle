@@ -32,7 +32,7 @@ export function Header({
     setKeyboardLayoutType,
 }: HeaderProps): JSX.Element {
     const resetGame = () => {
-        setAttempts(["", "", "", "", ""]);
+        setAttempts(["", "", "", "", "", ""]);
         setGameNb((previous) => previous + 1);
         setAttemptNb(0);
         setKeyboardColors({ gray: "", yellow: "", green: "" });
