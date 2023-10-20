@@ -1,6 +1,7 @@
 import { getRandomItem } from "../utils/getRandomItem";
 import { KeyboardSelector } from "./KeyboardSelector";
-import { KeyboardLayouts } from "./App";
+import { KeyboardLayouts, maxAttemptsAllowed } from "./App";
+import { collect } from "../utils/collect";
 
 interface HeaderProps {
     gameNb: number;
@@ -32,10 +33,10 @@ export function Header({
     setKeyboardLayoutType,
 }: HeaderProps): JSX.Element {
     const resetGame = () => {
-        setAttempts(["", "", "", "", "", ""]);
+        setAttempts(collect("", maxAttemptsAllowed));
         setGameNb((previous) => previous + 1);
         setAttemptNb(0);
-        setKeyboardColors({ gray: "", yellow: "", green: "" });
+        setKeyboardColors({ gray: " ", yellow: " ", green: " " });
         setSolutionWord(getRandomItem(allPossibleWords));
     };
 
