@@ -44,9 +44,9 @@ function App() {
     const [attemptNb, setAttemptNb] = useState(0);
     const [allPossibleWords, setAllPossibleWords] = useState<string[]>([]);
     const [keyboardColors, setKeyboardColors] = useState({
-        gray: "",
-        yellow: "",
-        green: "",
+        gray: " ",
+        yellow: " ",
+        green: " ",
     });
     const [keyboardLayoutType, setKeyboardLayoutType] =
         useState<KeyboardLayouts>("QWERTY");

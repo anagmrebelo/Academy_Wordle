@@ -24,6 +24,7 @@ export function AttemptLine({
         const oneLetter = oneAttempt[nbSquares];
         const square = (
             <div
+                key={nbSquares}
                 className={
                     "attempt-letter-sqr " +
                     addBorderToSquare(oneLetter) +

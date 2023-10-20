@@ -76,7 +76,6 @@ export default function KeyboardSimple({
     };
 
     const onKeyPress = (button: string) => {
-        console.log(button);
         switch (button) {
             case "{enter}":
                 enterPress();
